@@ -22,14 +22,18 @@
 {{ with .Site.Params.favicon }}<link rel="icon" href="{{ . | absURL }}" />{{ end }}
 
 <!-- Styles -->
-<link rel="stylesheet" href="{{ "assets/css/split.css" | absURL }}" type="text/css" media="screen" />
+{{ $styles := resources.Get "sass/split.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 <!-- Image Styles -->
 {{ if .Site.Params.visual.image.enable }}
   <style type="text/css">
   {{ if .Site.Params.visual.image.file }}
-    .fs-split .split-image { background-image: url("{{ .Site.Params.visual.image.file | absURL }}"); background-position: {{ if .Site.Params.visual.image.position }}{{ .Site.Params.visual.image.position }}{{ else }}center center{{ end }}; }
+    .fs-split .split-image { background-image: url("{{ default .Site.Params.visual.image.file .Params.background | absURL }}"); background-position: {{ default .Site.Params.visual.image.position .Params.visual.image.position }} }
   {{ end }}
   </style>
 {{ end }}

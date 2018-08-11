@@ -3,19 +3,19 @@
 //-------------------------------------------------------------------------------
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
-@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 //-------------------------------------------------------------------------------
 // Variables
 //-------------------------------------------------------------------------------
 
 // Colors
-$color-background : #061C30;
-$color-text       : #848d96;
-$color-link       : #848d96;
-$color-link-hover : #CA486d;
-$color-maverick   : #47bec7;
-$color-tagline    : #CCCCCC;
+$color-background : #193C59;
+$color-text       : #6B818C;
+$color-link       : #EAEAEA;
+$color-link-hover : #F6511D;
+$color-maverick   : #6B818C; // name
+$color-tagline    : #BFBCCB; // function
 
 // Breakpoints
 $bp-smallish      : 1200px;
@@ -148,8 +148,8 @@ body.page-template-page-fullsingle-split {
   h1 {
     font-weight: 400;
     text-transform: uppercase;
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 32px;
+    line-height: 32px;
     margin-bottom: 40px;
     letter-spacing: 0.4px;
     color: $color-maverick;
@@ -167,7 +167,7 @@ body.page-template-page-fullsingle-split {
 
 .split-bio {
   padding: 40px 0 20px 0;
-  font-family: 'Lora', serif;
+  font-family: 'Source Sans Pro', sans-serif;
 
   @media (max-width: $bp-smallish ) {
     padding: 30px 0 10px 0;
@@ -238,6 +238,18 @@ body.page-template-page-fullsingle-split {
     line-height: inherit;
     margin-top: 0;
     margin-bottom: 20px;
+    a {
+      color: $color-link;
+      transition-duration: 0.5s;
+      border-bottom: 1px dotted $color-link;
+  
+      &:hover {
+        color: $color-link-hover;
+        transition-duration: 0.1s;
+        border-bottom: 1px dotted $color-link-hover;
+      }
+  
+    }
   }
 
   h2, .h2 {

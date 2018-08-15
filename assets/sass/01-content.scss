@@ -359,6 +359,10 @@ body.page-template-page-fullsingle-split {
         line-height: 16px;
         margin-bottom: 12px;
 
+        .svg-inline--fa {
+          margin-right: 2px;
+        }
+          
         a {
           color: $color-link;
           transition-duration: 0.5s;
